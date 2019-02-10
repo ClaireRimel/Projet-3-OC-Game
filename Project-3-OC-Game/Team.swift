@@ -48,10 +48,12 @@ func enterTeamName(){
 
 // add character to the team
 func addTeamMember(team: Team){
+    print("Team: \(team.name)")
     // Choose 1 character and give a name 3 times
     repeat {
+        // display the current number of character
         print("Please choose 3 characters to constitue your team, (1 to 4)"
-            + "\n1. 🤺 Warior: 100, ⚔️: 10"
+            + "\n1. 🤺 Warior, ❤️: 100, ⚔️: 10"
             + "\n2. 🧞‍♂️ Magus, ❤️: 75, 🍵: 8"
             + "\n3: 🏋🏻‍♂️ Colossus, ❤️: 150, 🥊: 6"
             + "\n4: 🧝🏻‍♂️ Midget, ❤️: 50, ⛏: 30 ")
@@ -63,21 +65,15 @@ func addTeamMember(team: Team){
             let inputNumber = Int(inputNonOptional),
             let type = CharacterType(rawValue: inputNumber) {
             
-            print("You have selected the the \(team.characters)")
+            print("You have selected the \(type)")
             
-            var characterName: String?
-            
+            var characterName: String
             repeat {
-                print("Please enter the character´s name")
-                characterName = readLine()
-                // add optinal binding, to extract the value form an optional if it exist
-                if let value = characterName, value.count > 0 {
-                    let characterName = Character(name: value, charactertype: type)
-                    team.characters.append(characterName)
-                    
-                }
-                
-            } while (characterName == nil || characterName?.count == 0)
+                characterName = addNameToYourCharacter()
+            } while isCharacterNameIsUnique(characterName: characterName) == false
+            
+            let character = Character(name: characterName, charactertype: type)
+            team.characters.append(character)
             
         } else {
             
@@ -85,6 +81,42 @@ func addTeamMember(team: Team){
             
         }
         
-    } while team.characters.count <= 3
+    } while team.characters.count < 3
     
 }
+
+func addNameToYourCharacter() -> String {
+    
+    var characterName: String?
+    
+    repeat {
+        print("Please enter the character name")
+        characterName = readLine()
+        // add optinal binding, to extract the value form an optional if it exist
+        if let value = characterName, value.count > 0 {
+            characterName = value
+          
+            
+        }
+        
+    } while (characterName == nil || characterName?.count == 0)
+    
+    return characterName!
+}
+
+func isCharacterNameIsUnique(characterName:String) -> Bool {
+    
+    for team in teams {
+        // nested loop
+        for character in team.characters {
+            if characterName == character.name{
+                print("This name is not avaible")
+                return false
+            }
+        }
+    }
+    return true
+}
+
+
+//      if isCharacterNameIsUnique(characterName: value)
