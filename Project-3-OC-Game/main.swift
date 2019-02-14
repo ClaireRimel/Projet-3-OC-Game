@@ -14,7 +14,7 @@ print("   Welcome to Battle Game OC"
     + "\n   You will have the choice between:"
     + "\n"
     + "\n   🤺 Warior, 100 life point, 10 inflicted by his Sword"
-    + "\n   🧞‍♂️ Magus, 75 life point, 8 points recoverded by his Magic Potion"
+    + "\n   🧞‍♂️ Magus, 80 life point, 8 points recoverded by his Magic Potion"
     + "\n   🏋🏻‍♂️ Colossus, 150 life point, 6 inflicted by is Iron GLove"
     + "\n   🧝🏻‍♂️ Midget, 50 life point, 30 inflicted by his Axe"
     + "\n"
@@ -32,5 +32,4 @@ enterTeamName()
 for team in teams {
     addTeamMember(team: team)
 }
-
 

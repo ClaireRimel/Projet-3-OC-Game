@@ -16,26 +16,4 @@ class Weapon{
     }
 }
 
-class Sword: Weapon{
-    init(){
-        super.init(damages: 10)
-    }
-}
 
-class MagicPotion: Weapon {
-    init(){
-        super.init(damages: 25)
-    }
-}
-
-class IronGlove: Weapon {
-    init(){
-        super.init(damages: 6)
-    }
-}
-
-class Axe: Weapon {
-    init(){
-        super.init(damages: 30)
-    }
-}

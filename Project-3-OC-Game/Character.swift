@@ -38,7 +38,7 @@ class Character {
             
         case.Midget:
             self.weapon = Axe()
-            self.life = 70
+            self.life = 50
         }
     }
 }
