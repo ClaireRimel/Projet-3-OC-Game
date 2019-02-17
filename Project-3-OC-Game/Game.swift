@@ -36,7 +36,7 @@ class Game {
     }
     
     
-    // Utils
+    // Utils :
     
     func input() -> Int {
         let strData = readLine();
@@ -50,7 +50,7 @@ class Game {
             // nested loop
             for character in team.characters {
                 if characterName == character.name{
-                    print("This name is not avaible")
+                    print("This character name is not avaible")
                     return false
                 }
             }
@@ -58,27 +58,50 @@ class Game {
         return true
     }
 
+    func isTeamNameIsUnique(name: String) -> Bool {
+        for team in teams {
+            if name == team.name {
+                print("This team name is not avaible")
+                return false
+            }
+        }
+        return true
+    }
+    
+    func addNameToYourTeam() -> String {
+        var name: String?
+        
+        repeat {
+            print("Please enter a name") //
+            name = readLine()
+            // add optinal binding, to extract the value form an optional if it exist
+            if let value = name, value.count > 0 {
+                name = value
+                
+            }
+            
+        } while (name == nil || name?.count == 0)
+        
+        return name!
+    }
+    
     //Create 2 teams
     func createTeams() {
         for i in 1...2 {
             
-            var name: String?
-            
+            var name: String
             //ask user a team's name
             repeat {
                 print("Player \(i), please enter your team´s name")
                 
-                name = readLine()
-                
-                // add optinal binding, to extract the value form an optional if it exist
-                if let value = name, value.count > 0 {
-                    let team = Team(name: value, game: self)
-                    // add the name in an array.
-                    teams.append(team)
-                    team.addTeamMembers()
-                    //TODO: create characters
-                }
-            } while (name == nil || name?.count == 0)
+                name = addNameToYourTeam()
+              
+            } while isTeamNameIsUnique(name: name) == false
+            
+            let team = Team(name: name, game: self)
+            // add the name in an array.
+            teams.append(team)
+            team.addTeamMembers()
         }
     }
     
