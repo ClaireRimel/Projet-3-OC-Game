@@ -10,7 +10,7 @@ import Foundation
 
 
 enum CharacterType: Int {
-    case Warior = 1, Wizard, Colossus, Midget
+    case warior = 1, wizard, colossus, midget
 }
 
 
@@ -47,19 +47,19 @@ class Character {
         self.charactertype = charactertype
         
         switch self.charactertype {
-        case .Warior:
+        case .warior:
             self.weaponType = .sword
             self.life = 100
             
-        case .Wizard:
+        case .wizard:
             self.weaponType = .magicPotion
             self.life = 80
             
-        case.Colossus:
+        case.colossus:
             self.weaponType = .ironGlove
             self.life = 150
             
-        case.Midget:
+        case.midget:
             self.weaponType = .axe
             self.life = 50
         }
