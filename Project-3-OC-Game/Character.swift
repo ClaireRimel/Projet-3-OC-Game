@@ -14,8 +14,6 @@ enum CharacterType: Int {
 }
 
 
-
-
 class Character {
     
     let name: String
@@ -46,6 +44,14 @@ class Character {
         case.midget:
             self.weaponType = .axe
             self.life = 50
+        }
+    }
+    
+    func action(target: Character) {
+        if charactertype == .wizard {
+            target.life += weaponType.power()
+        } else {
+            target.life -= weaponType.power()
         }
     }
 }

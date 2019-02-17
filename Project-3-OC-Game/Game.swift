@@ -38,11 +38,7 @@ class Game {
     
     // Utils :
     
-    func input() -> Int {
-        let strData = readLine();
-        
-        return Int(strData!)!
-    }
+
     
     //Function which verify of the name is avaible
     func isCharacterNameIsUnique(characterName: String) -> Bool {
@@ -107,11 +103,49 @@ class Game {
         }
     }
     
-    func descriptionTeam () {
-        
-    
-        
+    func battleTurn(team: Team, enemyTeam: Team) {
+        //MENU selection of character
+        print("Select a character to play:")
+        let characterSelected = selectCharacterFrom(team: team)
+        if characterSelected.charactertype == .wizard {
+            // TODO: Add Logic
+            
+        } else {
+            print("Select an enemy to attack:")
+            let enemySelected = selectCharacterFrom(team: enemyTeam)
+            characterSelected.action(target: enemySelected)
+            
+            //check if enemy.life <= 0 -> mort
+        }
     }
+    
+    func selectCharacterFrom(team: Team) -> Character {
+        for i in 0..<team.characters.count {
+            let character = team.characters[i]
+            print ("\(i + 1) \(character.name) the \(character.charactertype) ")
+        }
+        
+        var inputSelection: Int?
+        
+        repeat {
+            //select option
+            inputSelection = numericValue(input: readLine())
+        } while inputSelection == nil || inputSelection! < 1 || inputSelection! > 3
+        
+        let characterSelected = team.characters[inputSelection! - 1]
+        print("You have selected \(characterSelected.name)")
+        return characterSelected
+    }
+    
+    func numericValue(input: String?) -> Int? {
+        if let inputNonOptional = input,
+            inputNonOptional.count > 0,
+            let inputNumber = Int(inputNonOptional) {
+            return inputNumber
+        }
+        return nil
+    }
+    
     //    func presentationBeforeFightTeam1() {
     //
     //        print("Team: \(teams[1].name)"
