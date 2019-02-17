@@ -79,6 +79,14 @@ class Team {
         
         return characterName!
     }
+    
+    func displayCurrentStatus() {
+        print("Team: \(name) you team is composed of :")
+        
+        for character in characters {
+            print("\(character.name) the \(character.charactertype), he have \(character.life) life points, he is armed with \(character.weaponType) which have a power of \(character.weaponType.power()) ")
+        }
+    }
 
 
 

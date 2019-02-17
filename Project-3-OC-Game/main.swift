@@ -30,11 +30,9 @@ var game = Game()
 game.start()
 game.createTeams()
 
-
-
-//    enterTeamName()
-//
-//for team in teams {
-//    addTeamMember(team: team)
+//test
+//for team in game.teams {
+//    team.displayCurrentStatus()
 //}
+
 
