@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FA5738802210B3E5009405EC /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA57387F2210B3E5009405EC /* Game.swift */; };
+		FA6C90E52219DF4E00B4C334 /* WeaponType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6C90E42219DF4E00B4C334 /* WeaponType.swift */; };
 		FA9532C922109726003D4166 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9532C822109726003D4166 /* main.swift */; };
 		FA9532D6221099D7003D4166 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9532D5221099D7003D4166 /* Team.swift */; };
 		FA9532DA22109A0A003D4166 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9532D922109A0A003D4166 /* Character.swift */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		FA57387F2210B3E5009405EC /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		FA6C90E42219DF4E00B4C334 /* WeaponType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponType.swift; sourceTree = "<group>"; };
 		FA9532C522109726003D4166 /* Project-3-OC-Game */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Project-3-OC-Game"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA9532C822109726003D4166 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		FA9532D5221099D7003D4166 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				FA9532D5221099D7003D4166 /* Team.swift */,
 				FA57387F2210B3E5009405EC /* Game.swift */,
 				FA9532D922109A0A003D4166 /* Character.swift */,
+				FA6C90E42219DF4E00B4C334 /* WeaponType.swift */,
 			);
 			path = "Project-3-OC-Game";
 			sourceTree = "<group>";
@@ -131,6 +134,7 @@
 				FA9532D6221099D7003D4166 /* Team.swift in Sources */,
 				FA5738802210B3E5009405EC /* Game.swift in Sources */,
 				FA9532C922109726003D4166 /* main.swift in Sources */,
+				FA6C90E52219DF4E00B4C334 /* WeaponType.swift in Sources */,
 				FA9532DA22109A0A003D4166 /* Character.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

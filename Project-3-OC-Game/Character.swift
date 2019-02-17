@@ -14,22 +14,6 @@ enum CharacterType: Int {
 }
 
 
-enum WeaponType {
-    case sword, magicPotion, ironGlove, axe
-    
-    func power() -> Int {
-        switch self {
-        case .sword :
-            return 10
-        case .magicPotion:
-            return 8
-        case .ironGlove:
-            return 6
-        case .axe:
-            return 30
-        }
-    }
-}
 
 
 class Character {
