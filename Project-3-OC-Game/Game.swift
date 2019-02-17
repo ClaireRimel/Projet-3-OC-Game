@@ -20,7 +20,7 @@ class Game {
             + "\n   You will have the choice between:"
             + "\n"
             + "\n   🤺 Warior, 100 life point, 10 inflicted by his Sword"
-            + "\n   🧞‍♂️ Magus, 80 life point, 8 points recoverded by his Magic Potion"
+            + "\n   🧞‍♂️ Wizard, 80 life point, 8 points recoverded by his Magic Potion"
             + "\n   🏋🏻‍♂️ Colossus, 150 life point, 6 inflicted by is Iron GLove"
             + "\n   🧝🏻‍♂️ Midget, 50 life point, 30 inflicted by his Axe"
             + "\n"
@@ -40,7 +40,7 @@ class Game {
     
     func input() -> Int {
         let strData = readLine();
-
+        
         return Int(strData!)!
     }
     
@@ -57,7 +57,7 @@ class Game {
         }
         return true
     }
-
+    
     func isTeamNameIsUnique(name: String) -> Bool {
         for team in teams {
             if name == team.name {
@@ -72,6 +72,7 @@ class Game {
         var name: String?
         
         repeat {
+            
             print("Please enter a name") //
             name = readLine()
             // add optinal binding, to extract the value form an optional if it exist
@@ -87,6 +88,7 @@ class Game {
     
     //Create 2 teams
     func createTeams() {
+        
         for i in 1...2 {
             
             var name: String
@@ -95,7 +97,7 @@ class Game {
                 print("Player \(i), please enter your team´s name")
                 
                 name = addNameToYourTeam()
-              
+                
             } while isTeamNameIsUnique(name: name) == false
             
             let team = Team(name: name, game: self)
@@ -105,63 +107,68 @@ class Game {
         }
     }
     
-//    func presentationBeforeFightTeam1() {
-//
-//        print("Team: \(teams[1].name)"
-//            + "\nThe Enemy team is composed of: "
-//            // Add the characteristics
-//            + "\n \(teams[2].characters[0])"
-//            + "\n \(teams[2].characters[1])"
-//            + "\n \(teams[2].characters[2])"
-//            + "\n Your team is composed of "
-//            + "\n1 \(teams[1].characters[0])"
-//            + "\n2 \(teams[1].characters[1])"
-//            + "\n3 \(teams[1].characters[2])"
-//            + "\n please choose your character(1-3)" )
-//
-//        //action()
-//    }
-//
-//    func presentationBeforeFightTeam2(team: Team) {
-//
-//        print("Team: \(teams[2].name)"
-//            + "\nThe Enemy team is composed of: "
-//            // Add the characteristics
-//            + "\n1 \(teams[1].characters[0])"
-//            + "\n2 \(teams[1].characters[1])"
-//            + "\n3 \(teams[1].characters[2])"
-//            + "\n Your team is composed of: "
-//            + "\n1 \(teams[2].characters[0])"
-//            + "\n2 \(teams[2].characters[1])"
-//            + "\n3 \(teams[2].characters[2])"
-//            + "\n please choose your character(1-3)")
-//
-//        //action()
-//    }
-
-
-
-
-
-//func action (team: Team) {
-//
-//    let choose = input()
-//    var lifePointAfterAction : Int
-//
-//    if choose > 0 && choose < 4 {
-//
-//    switch choose {
-//
-//    case Character.Magus:
-//        // select character of your team to give life point to him
-//        lifePointAfterAction = .live + .damages
-//    case .:
-//        // select a character of the enemy team took life point
-//        lifePointAfterAction = .live + damages
-//    default:
-//        <#code#>
-//    }
-//}
-
-
+    func descriptionTeam () {
+        
+    
+        
+    }
+    //    func presentationBeforeFightTeam1() {
+    //
+    //        print("Team: \(teams[1].name)"
+    //            + "\nThe Enemy team is composed of: "
+    //            // Add the characteristics
+    //            + "\n \(teams[2].characters[0])"
+    //            + "\n \(teams[2].characters[1])"
+    //            + "\n \(teams[2].characters[2])"
+    //            + "\n Your team is composed of "
+    //            + "\n1 \(teams[1].characters[0])"
+    //            + "\n2 \(teams[1].characters[1])"
+    //            + "\n3 \(teams[1].characters[2])"
+    //            + "\n please choose your character(1-3)" )
+    //
+    //        //action()
+    //    }
+    //
+    //    func presentationBeforeFightTeam2(team: Team) {
+    //
+    //        print("Team: \(teams[2].name)"
+    //            + "\nThe Enemy team is composed of: "
+    //            // Add the characteristics
+    //            + "\n1 \(teams[1].characters[0])"
+    //            + "\n2 \(teams[1].characters[1])"
+    //            + "\n3 \(teams[1].characters[2])"
+    //            + "\n Your team is composed of: "
+    //            + "\n1 \(teams[2].characters[0])"
+    //            + "\n2 \(teams[2].characters[1])"
+    //            + "\n3 \(teams[2].characters[2])"
+    //            + "\n please choose your character(1-3)")
+    //
+    //        //action()
+    //    }
+    
+    
+    
+    
+    
+    //func action (team: Team) {
+    //
+    //    let choose = input()
+    //    var lifePointAfterAction : Int
+    //
+    //    if choose > 0 && choose < 4 {
+    //
+    //    switch choose {
+    //
+    //    case Character.Magus:
+    //        // select character of your team to give life point to him
+    //        lifePointAfterAction = .live + .damages
+    //    case .:
+    //        // select a character of the enemy team took life point
+    //        lifePointAfterAction = .live + damages
+    //    default:
+    //        <#code#>
+    //    }
+    //}
+    
+    
 }

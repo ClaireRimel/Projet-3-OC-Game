@@ -30,7 +30,7 @@ class Team {
         // display the current number of character
             print("Please choose 3 characters to constitue your team, (1 to 4)"
                 + "\n1. 🤺 Warior, ❤️: 100, ⚔️: 10"
-                + "\n2. 🧞‍♂️ Magus, ❤️: 75, 🍵: 8"
+                + "\n2. 🧞‍♂️ Wizard, ❤️: 75, 🍵: 8"
                 + "\n3: 🏋🏻‍♂️ Colossus, ❤️: 150, 🥊: 6"
                 + "\n4: 🧝🏻‍♂️ Midget, ❤️: 50, ⛏: 30 ")
         
