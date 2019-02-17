@@ -12,19 +12,19 @@ import Foundation
 class Team {
     // Remind add rule, 3 characters max
     var characters: [Character] = []
-    //Create array of Team
-    var teams: [Team] = []
+    
+    let game: Game
     
     let name: String
     
-    init(name: String) {
+    init(name: String, game: Game) {
         self.name = name
-        
+        self.game = game
     }
 
-// add character to the team
-    func addTeamMember(team: Team){
-        print("Team: \(team.name)")
+    // add character to the team
+    func addTeamMembers(){
+        print("Team: \(name)")
     // Choose 1 character and give it a name, 3 times
         repeat {
         // display the current number of character
@@ -48,52 +48,38 @@ class Team {
                 repeat {
                     characterName = addNameToYourCharacter()
                     // Verify of the name is avaible
-                } while isCharacterNameIsUnique(characterName: characterName) == false
+                } while game.isCharacterNameIsUnique(characterName: characterName) == false
             
                 let character = Character(name: characterName, charactertype: type)
             // add the character in the array corresponding
-                team.characters.append(character)
+                characters.append(character)
             
             } else {
                 print("Please enter un number between 1 and 4")
             }
 
-        } while team.characters.count < 3
+        } while characters.count < 3
     }
 
 
-// function which verify if the name the player give a name.
+    // function which verify if the name the player give a name.
     func addNameToYourCharacter() -> String {
-    
-    var characterName: String?
-    
-    repeat {
-        print("Please enter the character name")
-        characterName = readLine()
-        // add optinal binding, to extract the value form an optional if it exist
-        if let value = characterName, value.count > 0 {
-            characterName = value
-    
-        }
+        var characterName: String?
         
-    } while (characterName == nil || characterName?.count == 0)
-    
-    return characterName!
-}
-
-
-//Function which verify of the name is avaible
-func isCharacterNameIsUnique(characterName:String) -> Bool {
-    
-    for team in teams {
-        // nested loop
-        for character in team.characters {
-            if characterName == character.name{
-                print("This name is not avaible")
-                return false
+        repeat {
+            print("Please enter the character name")
+            characterName = readLine()
+            // add optinal binding, to extract the value form an optional if it exist
+            if let value = characterName, value.count > 0 {
+                characterName = value
+                
             }
-        }
+            
+        } while (characterName == nil || characterName?.count == 0)
+        
+        return characterName!
     }
-    return true
-    }
+
+
+
 }
