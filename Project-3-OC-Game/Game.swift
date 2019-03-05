@@ -149,6 +149,9 @@ class Game {
             characterSelected.action(target: enemySelected)
             
             //check if enemy.life <= 0 -> dead
+            if enemySelected.life <= 0 {
+                print("\(enemySelected.name) is dead")
+            }
         }
     }
     
@@ -157,7 +160,11 @@ class Game {
         for i in 0..<team.characters.count {
             let character = team.characters[i]
             // +1 useful to show to the player the number corresponding from the selection
-            print ( " \(i + 1) \(character.name) the \(character.charactertype), he have \(character.life) life points, he is armed with \(character.weaponType) which have a power of \(character.weaponType.power())" )
+            if character.life > 0 {
+                print ( " \(i + 1) \(character.name): \(character.charactertype.getEmoji()) | ❤️ : \(character.life) | \(character.charactertype.getWeaponEmoji()): \(character.weaponType.power())" )
+            } else {
+                print(" \(i + 1) \(character.name): \(character.charactertype.getEmoji()) is dead")
+            }
         }
         // verify if the number is an Int
         var inputSelection: Int?

@@ -10,7 +10,34 @@ import Foundation
 
 
 enum CharacterType: Int {
-    case warior = 1, wizard, colossus, midget
+    case warrior = 1, wizard, colossus, midget
+    
+    func getEmoji() -> String {
+        switch self {
+        case .warrior:
+            return "🤺"
+        case .wizard:
+            return "🧙🏻‍♂️"
+        case .colossus:
+            return "🏋🏻‍♂️"
+        case .midget:
+            return "🧝🏻‍♂️"
+        }
+    }
+    
+    func getWeaponEmoji() -> String {
+        switch self {
+        case .warrior:
+            return "⚔️"
+        case .wizard:
+            return "🍵"
+        case .colossus:
+            return "🥊"
+        case .midget:
+            return "⛏"
+        }
+    }
+
 }
 
 
@@ -29,7 +56,7 @@ class Character {
         self.charactertype = charactertype
         
         switch self.charactertype {
-        case .warior:
+        case .warrior:
             self.weaponType = .sword
             self.life = 100
             

@@ -32,7 +32,7 @@ class Team {
             print(" "
                 + "\nPlease choose 3 characters to constitue your team, (1 to 4)"
                 + "\n"
-                + "\n1. 🤺 Warior   | ❤️: 100 | ⚔️: 10"
+                + "\n1. \(CharacterType.warrior.getEmoji()) Warior   | ❤️: 100 | ⚔️: 10"
                 + "\n2. 🧙🏻‍♂️ Wizard   | ❤️: 75  | 🍵: 8"
                 + "\n3: 🏋🏻‍♂️ Colossus | ❤️: 150 | 🥊: 6"
                 + "\n4: 🧝🏻‍♂️ Midget   | ❤️: 50  | ⛏: 30"
