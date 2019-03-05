@@ -11,12 +11,12 @@ import Foundation
 var game = Game()
 
 game.start()
-
+game.startBattle()
 
 
 //test
-for team in game.teams {
-    team.displayCurrentStatus()
-}
+//for team in game.teams {
+//    team.displayCurrentStatus()
+//}
 
 

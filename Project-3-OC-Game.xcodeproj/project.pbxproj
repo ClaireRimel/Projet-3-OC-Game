@@ -68,10 +68,18 @@
 				FA9532C822109726003D4166 /* main.swift */,
 				FA9532D5221099D7003D4166 /* Team.swift */,
 				FA57387F2210B3E5009405EC /* Game.swift */,
+				FAF337B9221C06F100C20F7B /* Characters */,
 				FA9532D922109A0A003D4166 /* Character.swift */,
 				FA6C90E42219DF4E00B4C334 /* WeaponType.swift */,
 			);
 			path = "Project-3-OC-Game";
+			sourceTree = "<group>";
+		};
+		FAF337B9221C06F100C20F7B /* Characters */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Characters;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

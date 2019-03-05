@@ -131,11 +131,15 @@ class Game {
     // Print the character team to be selected
    
     func battleTurn(team: Team, enemyTeam: Team) {
+        
         //MENU selection of character
-        print("Select a character to play:")
+        print("Team \(team.name)"
+            + "\n"
+            + "\n Select a character to play:")
         let characterSelected = selectCharacterFrom(team: team)
         // print the character that could be cured
         if characterSelected.charactertype == .wizard {
+            print("wizard selected...")
             // TODO: Add Logic
             
             // print character that could be attacked
@@ -153,7 +157,7 @@ class Game {
         for i in 0..<team.characters.count {
             let character = team.characters[i]
             // +1 useful to show to the player the number corresponding from the selection
-            print ("\(i + 1) \(character.name) the \(character.charactertype) ")
+            print ( " \(i + 1) \(character.name) the \(character.charactertype), he have \(character.life) life points, he is armed with \(character.weaponType) which have a power of \(character.weaponType.power())" )
         }
         // verify if the number is an Int
         var inputSelection: Int?
