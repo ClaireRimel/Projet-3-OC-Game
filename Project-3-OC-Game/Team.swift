@@ -24,15 +24,19 @@ class Team {
 
     // add character to the team
     func addTeamMembers(){
-        print("Team: \(name)")
+        print(" "
+            + "\nTeam: \(name)")
     // Choose 1 character and give it a name, 3 times
         repeat {
         // display the current number of character
-            print("Please choose 3 characters to constitue your team, (1 to 4)"
-                + "\n1. 🤺 Warior, ❤️: 100, ⚔️: 10"
-                + "\n2. 🧞‍♂️ Wizard, ❤️: 75, 🍵: 8"
-                + "\n3: 🏋🏻‍♂️ Colossus, ❤️: 150, 🥊: 6"
-                + "\n4: 🧝🏻‍♂️ Midget, ❤️: 50, ⛏: 30 ")
+            print(" "
+                + "\nPlease choose 3 characters to constitue your team, (1 to 4)"
+                + "\n"
+                + "\n1. 🤺 Warior   | ❤️: 100 | ⚔️: 10"
+                + "\n2. 🧙🏻‍♂️ Wizard   | ❤️: 75  | 🍵: 8"
+                + "\n3: 🏋🏻‍♂️ Colossus | ❤️: 150 | 🥊: 6"
+                + "\n4: 🧝🏻‍♂️ Midget   | ❤️: 50  | ⛏: 30"
+                + "\n")
         
             // Turn a string optionnal into an Int non-optional.
             let input = readLine()
@@ -55,7 +59,8 @@ class Team {
                 characters.append(character)
             
             } else {
-                print("Please enter un number between 1 and 4")
+                print("Please enter un number between 1 and 4"
+                    + "\n")
             }
 
         } while characters.count < 3
@@ -67,7 +72,7 @@ class Team {
         var characterName: String?
         
         repeat {
-            print("Please enter the character name")
+            print("\nPlease enter the character name")
             characterName = readLine()
             // add optinal binding, to extract the value form an optional if it exist
             if let value = characterName, value.count > 0 {
@@ -81,13 +86,17 @@ class Team {
     }
     
     func displayCurrentStatus() {
-        print("Team: \(name) you team is composed of :")
+        print(" "
+            + "\nTeam \(name) you team is composed of :"
+            + "\n")
         
         for character in characters {
-            print("\(character.name) the \(character.charactertype), he have \(character.life) life points, he is armed with \(character.weaponType) which have a power of \(character.weaponType.power()) ")
+            print("  - \(character.name) the \(character.charactertype), he have \(character.life) life points, he is armed with \(character.weaponType) which have a power of \(character.weaponType.power()) ")
         }
     }
-
-
-
+    
+    func hasLost() -> Bool {        
+        // .filter extract juste the element that is required in the condition, is this case : life
+        return characters.filter({ $0.life > 0 }).count == 0
+    }
 }

@@ -46,7 +46,7 @@ class Character {
             self.life = 50
         }
     }
-    
+    // Tempoary place, this implement the action of the characters
     func action(target: Character) {
         if charactertype == .wizard {
             target.life += weaponType.power()
