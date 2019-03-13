@@ -155,29 +155,62 @@ class Game {
         }
     }
     
-    // Used to print the selection of characters
+   
+    //validate that the character selected is alive, if not we'll display an error message and the user we'll have to repeat the selection
     func selectCharacterFrom(team: Team) -> Character {
-        for i in 0..<team.characters.count {
-            let character = team.characters[i]
-            // +1 useful to show to the player the number corresponding from the selection
-            if character.life > 0 {
-                print ( " \(i + 1) \(character.name): \(character.charactertype.getEmoji()) | ❤️ : \(character.life) | \(character.charactertype.getWeaponEmoji()): \(character.weaponType.power())" )
-            } else {
-                print(" \(i + 1) \(character.name): \(character.charactertype.getEmoji()) is dead")
-            }
-        }
-        // verify if the number is an Int
-        var inputSelection: Int?
         
+        var characterSelected: Character?
+        
+        // Used to print the selection of characters
         repeat {
-            //select option
-            inputSelection = numericValue(input: readLine())
-        } while inputSelection == nil || inputSelection! < 1 || inputSelection! > 3
-        // -1 useful to reput the number selected corresponding to the initial array number
-        let characterSelected = team.characters[inputSelection! - 1]
-        print("You have selected \(characterSelected.name)")
-        return characterSelected
+            //print characters list
+            for i in 0..<team.characters.count {
+                let character = team.characters[i]
+                // +1 useful to show to the player the number corresponding from the selection
+                if character.life > 0 {
+                    print ( " \(i + 1) \(character.name): \(character.charactertype.getEmoji()) | ❤️ : \(character.life) | \(character.charactertype.getWeaponEmoji()): \(character.weaponType.power())" )
+                } else {
+                    print(" \(i + 1) \(character.name): \(character.charactertype.getEmoji()) is dead")
+                }
+            }
+            
+            // verify if the number is an Int
+            var inputSelection: Int?
+            
+            repeat {
+                //select option
+                inputSelection = numericValue(input: readLine())
+            } while inputSelection == nil || inputSelection! < 1 || inputSelection! > 3
+            
+            // -1 useful to reput the number selected corresponding to the initial array number
+            characterSelected = team.characters[inputSelection! - 1]
+
+//            if characterSelected!.life <= 0 {
+//                print("esta muerto")
+//            }
+            
+//        } while characterSelected!.life <= 0
+        } while isCharacterDead(characterSelected!)
+
+  
+        
+        
+        
+        //character.life > 0 -> todo ok
+        //else display error -> repeat selection
+        
+        print("You have selected \(characterSelected!.name)")
+        return characterSelected!
     }
+    
+    func isCharacterDead(_ character: Character) -> Bool {
+        if character.life <= 0 {
+            print("This character selected is dead, please choose another one")
+            return true
+        }
+        return false
+    }
+    
     // use the verify if the number could be convertible to an Int
     func numericValue(input: String?) -> Int? {
         if let inputNonOptional = input,

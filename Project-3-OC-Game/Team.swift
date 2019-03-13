@@ -98,5 +98,6 @@ class Team {
     func hasLost() -> Bool {        
         // .filter extract juste the element that is required in the condition, is this case : life
         return characters.filter({ $0.life > 0 }).count == 0
+        // rester a 0
     }
 }

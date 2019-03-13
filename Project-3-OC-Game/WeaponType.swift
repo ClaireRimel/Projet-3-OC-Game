@@ -14,7 +14,7 @@ enum WeaponType {
     func power() -> Int {
         switch self {
         case .sword :
-            return 10
+            return 50
         case .magicPotion:
             return 8
         case .ironGlove:
