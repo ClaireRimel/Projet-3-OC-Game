@@ -109,22 +109,30 @@ class Game {
     
     func startBattle() {
         var isFirstTeamTurn = true
-        var isBattleFinished = false
-        
+        var hasTeam1Lost = false
+        var hasTeam2Lost = false
+
         repeat {
             if isFirstTeamTurn {
                 battleTurn(team: teams[0], enemyTeam: teams[1])
-                isBattleFinished = teams[1].hasLost()
+                hasTeam2Lost = teams[1].hasLost()
+                
             } else {
                 battleTurn(team: teams[1], enemyTeam: teams[0])
-                isBattleFinished = teams[0].hasLost()
+                hasTeam1Lost = teams[0].hasLost()
             }
-            // .toggle, change the value for the opposite one
+            // .toggle, change and assign the value for the opposite boolean value
             isFirstTeamTurn.toggle()
             
-        } while isBattleFinished == false
+         // !hasTeam1Lost change and BUT NOT assign the value for the opposite boolean value
+        } while !hasTeam1Lost && !hasTeam2Lost
         
-        //TODO: handle Battle finished...
+        // Print the winning team´s name 
+        if hasTeam1Lost {
+            print("Congratulation \(teams[1].name), you win! 🏆")
+        } else if hasTeam2Lost {
+            print("Congratulation \(teams[0].name), you win! 🏆")
+        }
     }
 
     
@@ -205,7 +213,7 @@ class Game {
     
     func isCharacterDead(_ character: Character) -> Bool {
         if character.life <= 0 {
-            print("This character selected is dead, please choose another one")
+            print("The character selected is dead, please choose another one")
             return true
         }
         return false
