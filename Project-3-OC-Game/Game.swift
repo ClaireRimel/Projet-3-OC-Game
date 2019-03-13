@@ -147,10 +147,18 @@ class Game {
         let characterSelected = selectCharacterFrom(team: team)
         // print the character that could be cured
         if characterSelected.charactertype == .wizard {
-            print("wizard selected...")
-            // TODO: Add Logic
+            print("\nSelect a character from your team to heal:")
             
-            // print character that could be attacked
+            // Should the wizard be able to heal himself ?
+            let characterToHealSelected = selectCharacterFrom(team: team)
+            characterSelected.action(target: characterToHealSelected)
+            // The characters can have more life points that they initialy have ?
+            
+            print("""
+                
+                \(characterToHealSelected.name) \(characterToHealSelected.charactertype.getEmoji()) has being healed by \(characterSelected.name) \(characterSelected.charactertype.getEmoji()), and has now \(characterToHealSelected.life) life points ❤️.
+                
+                """)
         } else {
             print("\nSelect an enemy to attack:")
             let enemySelected = selectCharacterFrom(team: enemyTeam)
@@ -159,7 +167,7 @@ class Game {
             print("""
                 
                 \(characterSelected.name) \(characterSelected.charactertype.getEmoji()) attacked \(enemySelected.name) \(enemySelected.charactertype.getEmoji()).
-                \(enemySelected.name) \(enemySelected.charactertype.getEmoji()) has now \(enemySelected.life) life points.
+                \(enemySelected.name) \(enemySelected.charactertype.getEmoji()) has now \(enemySelected.life) life points ❤️.
                 
                 """)
             
@@ -201,20 +209,7 @@ class Game {
             
             // -1 useful to reput the number selected corresponding to the initial array number
             characterSelected = team.characters[inputSelection! - 1]
-
-//            if characterSelected!.life <= 0 {
-//                print("esta muerto")
-//            }
-            
-//        } while characterSelected!.life <= 0
         } while isCharacterDead(characterSelected!)
-
-  
-        
-        
-        
-        //character.life > 0 -> todo ok
-        //else display error -> repeat selection
         
         print("You have selected \(characterSelected!.name)")
         return characterSelected!
