@@ -127,7 +127,7 @@ class Game {
          // !hasTeam1Lost change and BUT NOT assign the value for the opposite boolean value
         } while !hasTeam1Lost && !hasTeam2Lost
         
-        // Print the winning team´s name 
+        // Print the winning team´s name
         if hasTeam1Lost {
             print("Congratulation \(teams[1].name), you win! 🏆")
         } else if hasTeam2Lost {
@@ -143,7 +143,7 @@ class Game {
         //MENU selection of character
         print("Team \(team.name)"
             + "\n"
-            + "\n Select a character to play:")
+            + "\nSelect a character to play:")
         let characterSelected = selectCharacterFrom(team: team)
         // print the character that could be cured
         if characterSelected.charactertype == .wizard {
@@ -152,15 +152,24 @@ class Game {
             
             // print character that could be attacked
         } else {
-            print("Select an enemy to attack:")
+            print("\nSelect an enemy to attack:")
             let enemySelected = selectCharacterFrom(team: enemyTeam)
             characterSelected.action(target: enemySelected)
+           
+            print("""
+                
+                \(characterSelected.name) \(characterSelected.charactertype.getEmoji()) attacked \(enemySelected.name) \(enemySelected.charactertype.getEmoji()).
+                \(enemySelected.name) \(enemySelected.charactertype.getEmoji()) has now \(enemySelected.life) life points.
+                
+                """)
             
             //check if enemy.life <= 0 -> dead
             if enemySelected.life <= 0 {
-                print("\(enemySelected.name) is dead")
+                print("\(enemySelected.name) \(enemySelected.charactertype.getEmoji()) is dead 💀")
             }
         }
+       
+        
     }
     
    
