@@ -111,6 +111,7 @@ class Game {
         var isFirstTeamTurn = true
         var hasTeam1Lost = false
         var hasTeam2Lost = false
+        var turns = 0
 
         repeat {
             if isFirstTeamTurn {
@@ -123,7 +124,7 @@ class Game {
             }
             // .toggle, change and assign the value for the opposite boolean value
             isFirstTeamTurn.toggle()
-            
+            turns += 1
          // !hasTeam1Lost change and BUT NOT assign the value for the opposite boolean value
         } while !hasTeam1Lost && !hasTeam2Lost
         
@@ -133,6 +134,8 @@ class Game {
         } else if hasTeam2Lost {
             print("Congratulation \(teams[0].name), you win! 🏆")
         }
+        
+        print("Turns played: \(turns)")
     }
 
     
