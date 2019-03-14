@@ -14,23 +14,25 @@ class Game {
     var teams: [Team] = []
     
     func start() {
-        print("   Welcome to Battle Game OC"
-            + "\n"
-            + "\n   This war game is simple, 2 teams with 3 characters per team"
-            + "\n   You will have the choice between:"
-            + "\n"
-            + "\n   🤺 Warior, 100 life point, 10 inflicted by his Sword"
-            + "\n   🧙🏻‍♂️ Wizard, 80 life point, 8 points recoverded by his Magic Potion"
-            + "\n   🏋🏻‍♂️ Colossus, 150 life point, 6 inflicted by is Iron GLove"
-            + "\n   🧝🏻‍♂️ Midget, 50 life point, 30 inflicted by his Axe"
-            + "\n"
-            + "\n   When your team is ready, let´s the game begin !!!"
-            + "\n"
-            + "\n"
-            + "\n   OH, I forgot to tell you something... nothing is played in advance..."
-            + "\n"
-            + "\n                      ...Be aware..."
-            + "\n")
+        print("""
+
+                            Welcome to Battle Game OC
+            
+               This war game is simple, 2 teams with 3 characters per team
+               You will have the choice between:
+            
+               🤺 Warior, 100 life point, 10 inflicted by his Sword
+               🧙🏻‍♂️ Wizard, 80 life point, 8 points recoverded by his Magic Potion
+               🏋🏻‍♂️ Colossus, 150 life point, 6 inflicted by is Iron GLove
+               🧝🏻‍♂️ Midget, 50 life point, 30 inflicted by his Axe
+            
+               When your team is ready, let´s the game begin !!!
+            
+            
+               OH, I forgot to tell you something... nothing is played in advance...
+            
+                                  ...Be aware...
+            """)
         
         self.createTeams()
     }
@@ -44,8 +46,11 @@ class Game {
             // nested loop
             for character in team.characters {
                 if characterName == character.name{
-                    print("This character name is not avaible"
-                        + "\n")
+                    print("""
+
+                        ⚠️ This character name is not avaible
+                        
+                        """)
                     return false
                 }
             }
@@ -57,8 +62,11 @@ class Game {
     func isTeamNameIsUnique(name: String) -> Bool {
         for team in teams {
             if name == team.name {
-                print("This team name is not avaible"
-                    + "\n")
+                print("""
+
+                    ⚠️ This team name is not avaible
+
+                    """)
                 return false
             }
         }
@@ -70,8 +78,6 @@ class Game {
         
         repeat {
             
-            print("Please enter a name"
-                + "\n")
             name = readLine()
             // add optinal binding, to extract the value form an optional if it exist
             if let value = name, value.count > 0 {
@@ -92,8 +98,11 @@ class Game {
             var name: String
             //ask user a team's name
             repeat {
-                print("Player \(i), please enter your team´s name"
-                    + "\n")
+                print("""
+                    
+                    Player \(i), please enter your team´s name
+                    
+                    """)
                 
                 name = addNameToYourTeam()
                 
@@ -130,12 +139,12 @@ class Game {
         
         // Print the winning team´s name
         if hasTeam1Lost {
-            print("Congratulation \(teams[1].name), you win! 🏆")
+            print("\nCongratulation \(teams[1].name), you win! 🏆")
         } else if hasTeam2Lost {
-            print("Congratulation \(teams[0].name), you win! 🏆")
+            print("\nCongratulation \(teams[0].name), you win! 🏆")
         }
         
-        print("Turns played: \(turns)")
+        print("\nTurns played: \(turns)")
     }
 
     
@@ -144,9 +153,12 @@ class Game {
     func battleTurn(team: Team, enemyTeam: Team) {
         
         //MENU selection of character
-        print("Team \(team.name)"
-            + "\n"
-            + "\nSelect a character to play:")
+        print("""
+            
+            Team \(team.name)
+            Select a character to play:
+            
+            """)
         let characterSelected = selectCharacterFrom(team: team)
         // print the character that could be cured
         if characterSelected.charactertype == .wizard {
@@ -167,21 +179,26 @@ class Game {
             let enemySelected = selectCharacterFrom(team: enemyTeam)
             characterSelected.action(target: enemySelected)
            
-            print("""
+            if enemySelected.life > 0 {
+                print("""
+                    
+                    \(characterSelected.name) \(characterSelected.charactertype.getEmoji()) attacked \(enemySelected.name) \(enemySelected.charactertype.getEmoji())
+                    \(enemySelected.name) \(enemySelected.charactertype.getEmoji()) has now \(enemySelected.life) life points ❤️
+                    
+                    """)
                 
-                \(characterSelected.name) \(characterSelected.charactertype.getEmoji()) attacked \(enemySelected.name) \(enemySelected.charactertype.getEmoji()).
-                \(enemySelected.name) \(enemySelected.charactertype.getEmoji()) has now \(enemySelected.life) life points ❤️.
-                
-                """)
-            
-            //check if enemy.life <= 0 -> dead
-            if enemySelected.life <= 0 {
-                print("\(enemySelected.name) \(enemySelected.charactertype.getEmoji()) is dead 💀")
+                //check if enemy.life <= 0 -> dead
+            } else if enemySelected.life <= 0 {
+                print("""
+                    \(characterSelected.name) \(characterSelected.charactertype.getEmoji()) attacked \(enemySelected.name) \(enemySelected.charactertype.getEmoji())
+                    \(enemySelected.name) \(enemySelected.charactertype.getEmoji()) is now dead 💀
+                    
+                    """)
             }
         }
-       
-        
     }
+    
+    
     
    
     //validate that the character selected is alive, if not we'll display an error message and the user we'll have to repeat the selection
@@ -194,10 +211,11 @@ class Game {
             //print characters list
             for i in 0..<team.characters.count {
                 let character = team.characters[i]
+                
                 // +1 useful to show to the player the number corresponding from the selection
                 if character.life > 0 {
                     print ( " \(i + 1) \(character.name): \(character.charactertype.getEmoji()) | ❤️ : \(character.life) | \(character.charactertype.getWeaponEmoji()): \(character.weaponType.power())" )
-                } else {
+                } else if character.life <= 0 {
                     print(" \(i + 1) \(character.name): \(character.charactertype.getEmoji()) is dead")
                 }
             }
@@ -214,13 +232,21 @@ class Game {
             characterSelected = team.characters[inputSelection! - 1]
         } while isCharacterDead(characterSelected!)
         
-        print("You have selected \(characterSelected!.name)")
+        print("""
+            
+            You have selected \(characterSelected!.name)
+            
+            """)
         return characterSelected!
     }
     
     func isCharacterDead(_ character: Character) -> Bool {
         if character.life <= 0 {
-            print("The character selected is dead, please choose another one")
+            print("""
+
+            ⚠️ The character selected is dead 💀, please choose another one
+
+            """)
             return true
         }
         return false
