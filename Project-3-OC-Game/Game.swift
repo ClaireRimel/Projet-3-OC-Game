@@ -8,6 +8,9 @@
 
 import Foundation
 
+enum EndReason {
+    case team1Win, team2Win, draw
+}
 
 class Game {
     //Create array of Team
@@ -123,6 +126,12 @@ class Game {
         var turns = 0
 
         repeat {
+            // verify which types of characters alive are still playing
+            guard !onlyWizardsInGame() else {
+                battleFinished(reason: .draw)
+                return
+            }
+            
             if isFirstTeamTurn {
                 battleTurn(team: teams[0], enemyTeam: teams[1])
                 hasTeam2Lost = teams[1].hasLost()
@@ -137,11 +146,11 @@ class Game {
          // !hasTeam1Lost change and BUT NOT assign the value for the opposite boolean value
         } while !hasTeam1Lost && !hasTeam2Lost
         
-        // Print the winning team´s name
+//      Print the winning team´s name
         if hasTeam1Lost {
-            print("\nCongratulation \(teams[1].name), you win! 🏆")
+            battleFinished(reason: .team2Win)
         } else if hasTeam2Lost {
-            print("\nCongratulation \(teams[0].name), you win! 🏆")
+            battleFinished(reason: .team1Win)
         }
         
         print("\nTurns played: \(turns)")
@@ -149,7 +158,6 @@ class Game {
 
     
     // Print the character team to be selected
-   
     func battleTurn(team: Team, enemyTeam: Team) {
         
         //MENU selection of character
@@ -198,7 +206,17 @@ class Game {
         }
     }
     
-    
+    func battleFinished(reason: EndReason) {
+        switch reason {
+        case .team1Win:
+            print("\nCongratulation \(teams[0].name), you win! 🏆")
+        case .team2Win:
+            print("\nCongratulation \(teams[1].name), you win! 🏆")
+        case .draw:
+            print("\nSorry the party is over, because there are only wizards in game")
+
+        }
+    }
     
    
     //validate that the character selected is alive, if not we'll display an error message and the user we'll have to repeat the selection
@@ -261,4 +279,26 @@ class Game {
         }
         return nil
     }
+    
+    func onlyWizardsInGame() -> Bool {
+        var wizardsCount = 0
+        
+        for team in teams {
+            for character in team.characters {
+                if character.charactertype == .wizard {
+                    wizardsCount += 1
+                }
+            }
+        }
+        
+        var allCharacters: [Character] = []
+        allCharacters.append(contentsOf: teams[0].characters)
+        allCharacters.append(contentsOf: teams[1].characters)
+        let charactersAlive = allCharacters.filter({ $0.life > 0 })
+
+        return wizardsCount == charactersAlive.count
+    }
 }
+
+
+
