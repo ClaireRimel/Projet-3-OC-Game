@@ -81,6 +81,24 @@ class Character {
             target.life -= weaponType.power()
         }
     }
+
+    func selfDestruction(target: Character) {
+        if charactertype == .wizard {
+            target.life *= 2
+        } else {
+            target.life /= 2
+        }
+    }
+    //cac
+//    func test() {
+//        let weapon: ArmaType = .attack(.sword)
+//        let weapon2: ArmaType = .attack(.axe)
+//        let weapon3: ArmaType = .heal(.magicPotion)
+//
+//        if case .attack(let weapon) = weapon {
+//            let charType = weapon.characterType()[0]
+//        }
+//    }
 }
 
 

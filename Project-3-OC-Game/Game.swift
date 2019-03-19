@@ -93,7 +93,7 @@ class Game {
         return name!
     }
     
-    //Create 2 teams
+    //Create 2 teams in an array
     func createTeams() {
         
         for i in 1...2 {
@@ -143,7 +143,7 @@ class Game {
             // .toggle, change and assign the value for the opposite boolean value
             isFirstTeamTurn.toggle()
             turns += 1
-         // !hasTeam1Lost change and BUT NOT assign the value for the opposite boolean value
+         // !hasTeam1Lost change BUT NOT assign the value for the opposite boolean value
         } while !hasTeam1Lost && !hasTeam2Lost
         
 //      Print the winning team´s name
@@ -168,6 +168,12 @@ class Game {
             
             """)
         let characterSelected = selectCharacterFrom(team: team)
+       
+//        
+//        if characterSelected.life <= 7 {
+//            let attackAllMemberOfEnemyTeam =
+//            characterSelected.selfDestruction(target: attackAllMemberOfEnemyTeam)
+//        }
         // print the character that could be cured
         if characterSelected.charactertype == .wizard {
             print("\nSelect a character from your team to heal:")
@@ -198,6 +204,7 @@ class Game {
                 //check if enemy.life <= 0 -> dead
             } else if enemySelected.life <= 0 {
                 print("""
+                    
                     \(characterSelected.name) \(characterSelected.charactertype.getEmoji()) attacked \(enemySelected.name) \(enemySelected.charactertype.getEmoji())
                     \(enemySelected.name) \(enemySelected.charactertype.getEmoji()) is now dead 💀
                     
@@ -221,7 +228,6 @@ class Game {
    
     //validate that the character selected is alive, if not we'll display an error message and the user we'll have to repeat the selection
     func selectCharacterFrom(team: Team) -> Character {
-        
         var characterSelected: Character?
         
         // Used to print the selection of characters
@@ -279,7 +285,7 @@ class Game {
         }
         return nil
     }
-    
+    //Verify if all characters playing are wizard
     func onlyWizardsInGame() -> Bool {
         var wizardsCount = 0
         
