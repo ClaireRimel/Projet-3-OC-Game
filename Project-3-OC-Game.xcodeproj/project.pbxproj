@@ -12,6 +12,7 @@
 		FA9532C922109726003D4166 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9532C822109726003D4166 /* main.swift */; };
 		FA9532D6221099D7003D4166 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9532D5221099D7003D4166 /* Team.swift */; };
 		FA9532DA22109A0A003D4166 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9532D922109A0A003D4166 /* Character.swift */; };
+		FAEAC3052242DDC600D95848 /* Bonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEAC3042242DDC600D95848 /* Bonus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,6 +34,7 @@
 		FA9532C822109726003D4166 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		FA9532D5221099D7003D4166 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		FA9532D922109A0A003D4166 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		FAEAC3042242DDC600D95848 /* Bonus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bonus.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				FA9532C822109726003D4166 /* main.swift */,
 				FA9532D5221099D7003D4166 /* Team.swift */,
 				FA57387F2210B3E5009405EC /* Game.swift */,
+				FAEAC3042242DDC600D95848 /* Bonus.swift */,
 				FAF337B9221C06F100C20F7B /* Characters */,
 			);
 			path = "Project-3-OC-Game";
@@ -144,6 +147,7 @@
 				FA9532C922109726003D4166 /* main.swift in Sources */,
 				FA6C90E52219DF4E00B4C334 /* WeaponType.swift in Sources */,
 				FA9532DA22109A0A003D4166 /* Character.swift in Sources */,
+				FAEAC3052242DDC600D95848 /* Bonus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
