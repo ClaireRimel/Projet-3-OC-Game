@@ -16,6 +16,9 @@ class Game {
     //Create array of Team
     var teams: [Team] = []
     
+    //Creat Object with ()
+    let bonus = Bonus()
+    
     func start() {
         print("""
 
@@ -159,7 +162,6 @@ class Game {
     
     // Print the character team to be selected
     func battleTurn(team: Team, enemyTeam: Team) {
-        
         //MENU selection of character
         print("""
             
@@ -169,11 +171,8 @@ class Game {
             """)
         let characterSelected = selectCharacterFrom(team: team)
        
-//        
-//        if characterSelected.life <= 7 {
-//            let attackAllMemberOfEnemyTeam =
-//            characterSelected.selfDestruction(target: attackAllMemberOfEnemyTeam)
-//        }
+    
+
         // print the character that could be cured
         if characterSelected.charactertype == .wizard {
             print("\nSelect a character from your team to heal:")
@@ -200,6 +199,8 @@ class Game {
                     \(enemySelected.name) \(enemySelected.charactertype.getEmoji()) has now \(enemySelected.life) life points ❤️
                     
                     """)
+                
+                bonus.checkSelfDestructionBonus(victim: enemySelected, attackerTeam: team)
                 
                 //check if enemy.life <= 0 -> dead
             } else if enemySelected.life <= 0 {
@@ -238,9 +239,9 @@ class Game {
                 
                 // +1 useful to show to the player the number corresponding from the selection
                 if character.life > 0 {
-                    print ( " \(i + 1) \(character.name): \(character.charactertype.getEmoji()) | ❤️ : \(character.life) | \(character.charactertype.getWeaponEmoji()): \(character.weaponType.power())" )
+                    print ( "\(i + 1). \(character.name): \(character.charactertype.getEmoji()) | ❤️ : \(character.life) | \(character.charactertype.getWeaponEmoji()): \(character.weaponType.power())" )
                 } else if character.life <= 0 {
-                    print(" \(i + 1) \(character.name): \(character.charactertype.getEmoji()) is dead")
+                    print("\(i + 1). \(character.name): \(character.charactertype.getEmoji()) is dead")
                 }
             }
             
@@ -285,6 +286,7 @@ class Game {
         }
         return nil
     }
+    
     //Verify if all characters playing are wizard
     func onlyWizardsInGame() -> Bool {
         var wizardsCount = 0

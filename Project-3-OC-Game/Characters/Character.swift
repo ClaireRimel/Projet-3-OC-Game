@@ -82,12 +82,9 @@ class Character {
         }
     }
 
-    func selfDestruction(target: Character) {
-        if charactertype == .wizard {
-            target.life *= 2
-        } else {
+    func selfDestruct(target: Character) {
             target.life /= 2
-        }
+        
     }
     //cac
 //    func test() {
