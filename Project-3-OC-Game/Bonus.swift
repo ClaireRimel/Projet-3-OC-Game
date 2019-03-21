@@ -7,22 +7,19 @@
 //
 
 import Foundation
-
+// TODO: Extention
 class Bonus {
-    func checkSelfDestructionBonus(victim: Character, attackerTeam: Team) {
-        if victim.life <= 7 {
-            victim.life = 0
-            for character in attackerTeam.characters {
-                character.life /= 2
-              
-            }
-            print("""
-                
-                ❗️❗️❗️ \(victim.name) the \(victim.charactertype) \(victim.charactertype.getEmoji()) use self Destuct, by this attack he fainted 💀 but at the same time, he inflict a loose of the half to the life points of all the characters of the Team \(attackerTeam.name)❗️❗️❗️
-                
-                """)
-            
-            //
+    // ingrement the the victim life point to 0, and remove half of the life point from all characters of the opposite team
+    func selfDestructionBonus(victim: Character, attackerTeam: Team) {
+        victim.life = 0
+        for character in attackerTeam.characters {
+            character.life /= 2
         }
+        print("""
+            
+            ❗️❗️❗️Due to his low level of life points, \(victim.name) the \(victim.charactertype) \(victim.charactertype.getEmoji()) choose by himself, to use self Destuct, by this action, he fainted 💀 but he also inflict a loose of half to the life points of all the characters in the Team \(attackerTeam.name)❗️❗️❗️
+            
+            """)
     }
 }
+

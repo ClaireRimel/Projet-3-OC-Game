@@ -16,7 +16,7 @@ class Game {
     //Create array of Team
     var teams: [Team] = []
     
-    //Creat Object with ()
+    //Create Object with ()
     let bonus = Bonus()
     
     func start() {
@@ -199,8 +199,12 @@ class Game {
                     \(enemySelected.name) \(enemySelected.charactertype.getEmoji()) has now \(enemySelected.life) life points ❤️
                     
                     """)
-                
-                bonus.checkSelfDestructionBonus(victim: enemySelected, attackerTeam: team)
+                // use to verify if enemySelected.life <= 4 using the selfDestructionBonus()
+                if enemySelected.life <= 4 {
+                    bonus.selfDestructionBonus(victim: enemySelected, attackerTeam: team)
+                    
+                }
+               
                 
                 //check if enemy.life <= 0 -> dead
             } else if enemySelected.life <= 0 {
@@ -214,6 +218,7 @@ class Game {
         }
     }
     
+    // Ingrement the way to finish the party
     func battleFinished(reason: EndReason) {
         switch reason {
         case .team1Win:
@@ -221,7 +226,7 @@ class Game {
         case .team2Win:
             print("\nCongratulation \(teams[1].name), you win! 🏆")
         case .draw:
-            print("\nSorry the party is over, because there are only wizards in game")
+            print("\n🧙🏻‍♂️🧙🏻‍♂️🧙🏻‍♂️Sorry this party is over, because there are only wizards in game🧙🏻‍♂️🧙🏻‍♂️🧙🏻‍♂️")
 
         }
     }
@@ -241,7 +246,7 @@ class Game {
                 if character.life > 0 {
                     print ( "\(i + 1). \(character.name): \(character.charactertype.getEmoji()) | ❤️ : \(character.life) | \(character.charactertype.getWeaponEmoji()): \(character.weaponType.power())" )
                 } else if character.life <= 0 {
-                    print("\(i + 1). \(character.name): \(character.charactertype.getEmoji()) is dead")
+                    print("\(i + 1). \(character.name): \(character.charactertype.getEmoji()) is dead 💀")
                 }
             }
             
@@ -265,6 +270,7 @@ class Game {
         return characterSelected!
     }
     
+    // Verify if the character selected is dead
     func isCharacterDead(_ character: Character) -> Bool {
         if character.life <= 0 {
             print("""
@@ -298,7 +304,7 @@ class Game {
                 }
             }
         }
-        
+        // To put all characters alive in a same array, before comparing them to the number of wizard
         var allCharacters: [Character] = []
         allCharacters.append(contentsOf: teams[0].characters)
         allCharacters.append(contentsOf: teams[1].characters)
