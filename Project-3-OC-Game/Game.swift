@@ -171,8 +171,8 @@ class Game {
             """)
         let characterSelected = selectCharacterFrom(team: team)
        
-    
-
+        bonus.magicBoxAppearence(character: characterSelected)
+        
         // print the character that could be cured
         if characterSelected.charactertype == .wizard {
             print("\nSelect a character from your team to heal:")
@@ -244,7 +244,7 @@ class Game {
                 
                 // +1 useful to show to the player the number corresponding from the selection
                 if character.life > 0 {
-                    print ( "\(i + 1). \(character.name): \(character.charactertype.getEmoji()) | ❤️ : \(character.life) | \(character.charactertype.getWeaponEmoji()): \(character.weaponType.power())" )
+                    print ( "\(i + 1). \(character.name): \(character.charactertype.getEmoji()) | ❤️ : \(character.life) | \(character.weaponType.emoji()): \(character.weaponType.power())" )
                 } else if character.life <= 0 {
                     print("\(i + 1). \(character.name): \(character.charactertype.getEmoji()) is dead 💀")
                 }

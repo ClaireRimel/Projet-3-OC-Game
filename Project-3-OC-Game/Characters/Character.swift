@@ -25,18 +25,18 @@ enum CharacterType: Int {
         }
     }
     
-    func getWeaponEmoji() -> String {
-        switch self {
-        case .warrior:
-            return "⚔️"
-        case .wizard:
-            return "🍵"
-        case .colossus:
-            return "🥊"
-        case .midget:
-            return "⛏"
-        }
-    }
+//    func getWeaponEmoji() -> String {
+//        switch self {
+//        case .warrior:
+//            return "⚔️"
+//        case .wizard:
+//            return "🍵"
+//        case .colossus:
+//            return "🥊"
+//        case .midget:
+//            return "⛏"
+//        }
+//    }
 
 }
 
@@ -47,7 +47,7 @@ class Character {
     
     let charactertype: CharacterType
     
-    let weaponType: WeaponType
+    var weaponType: WeaponType
     
     var life: Int
     
