@@ -34,20 +34,26 @@ class Bonus {
         let weapons = WeaponType.getWeaponsFor(type: character.charactertype)
         let randomValue = Int.random(in: 0..<weapons.count)
         let newWeapon = weapons [randomValue]
+        
+        guard character.weaponType != newWeapon else {
+            magicBox(character: character)
+            return
+        }
+        
         print("""
             
-        \(character.name), the \(character.charactertype) \(character.charactertype.getEmoji()), find a Magic Box 🎁!!!!
-        
-        On this Magic Box🎁, there a e new weapon !!! Your character took it !!!
+            \(character.name), the \(character.charactertype) \(character.charactertype.getEmoji()), find a Magic Box 🎁!!!!
             
-        Before, he had \(character.weaponType) \(character.weaponType.emoji()) with a power of \(character.weaponType.power())
-""")
+            On this Magic Box🎁, there a e new weapon !!! Your character took it !!!
+            
+            Before, he had \(character.weaponType) \(character.weaponType.emoji()) with a power of \(character.weaponType.power())
+            """)
         character.weaponType = newWeapon
         
         print("""
             
-        🎉 Now he is armed by \(character.weaponType) \(character.weaponType.emoji()) with a power of \(character.weaponType.power())
-""")
+            🎉 Now he is armed by \(character.weaponType) \(character.weaponType.emoji()) with a power of \(character.weaponType.power())
+            """)
     }
 }
 

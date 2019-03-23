@@ -9,7 +9,7 @@
 import Foundation
 
 enum WeaponType {
-    case sword, magicPotion, ironGlove, axe, bomb, hammer, knif, dragger, firecraker, chain, elexirOfYouth, serum
+    case sword, magicPotion, ironGlove, axe, bomb, hammer, knif, dragger, firecraker, chain, elexirOfYouth, serum, apples, gun, spanner, bricks
     
     func weaponsName() -> String {
         switch self {
@@ -37,6 +37,14 @@ enum WeaponType {
             return "Elexir Of Youth"
         case .serum:
             return "Serum"
+        case .apples:
+            return "Apples"
+        case .gun:
+            return "Gun"
+        case .spanner:
+            return "Spanner"
+        case .bricks:
+            return "Bricks"
             
         }
     }
@@ -64,9 +72,17 @@ enum WeaponType {
         case .chain:
             return 45
         case .elexirOfYouth:
-            return 60
+            return 30
         case .serum:
-            return 35
+            return 20
+        case .apples:
+            return 15
+        case .gun:
+            return 26
+        case .spanner:
+            return 20
+        case .bricks:
+            return 19
             
         }
     }
@@ -97,6 +113,14 @@ enum WeaponType {
             return "🧬"
         case .serum:
             return "🧪"
+        case .apples:
+            return "🍎🍏"
+        case .gun:
+            return "🔫"
+        case .spanner:
+            return "🔧"
+        case .bricks:
+            return "🧱"
             
         }
     }
@@ -104,78 +128,13 @@ enum WeaponType {
     static func getWeaponsFor(type: CharacterType) -> [WeaponType] {
         switch type {
         case .wizard:
-            return [.elexirOfYouth, .serum]
+            return [.elexirOfYouth, .serum, .apples]
         case .warrior:
-            return [.knif, .dragger]
+            return [.knif, .dragger, .gun]
         case .colossus:
-            return [.bomb, .chain]
+            return [.bomb, .chain, .bricks]
         case .midget:
-            return [.hammer, .firecraker ]
+            return [.hammer, .firecraker, .spanner ]
         }
     }
 }
-
-////
-//enum ArmaType {
-//    //research Enum, associated type
-//    case attack(AttackWeaponOption)
-//    case heal(HealWeaponOption)
-//}
-//
-//enum AttackWeaponOption {
-//    case sword, ironGlove, axe, bonusSword, bonusIronGlove, bonusAxe
-//
-//    func power() -> Int {
-//        switch self {
-//        case .sword:
-//            return 10
-//        case .ironGlove:
-//            return 6
-//        case .axe:
-//            return 30
-//        case .bonusSword:
-//            return 30
-//        case .bonusIronGlove:
-//            return 18
-//        case .bonusAxe:
-//            return 90
-//
-//        }
-//    }
-//
-//enum HealWeaponOption {
-//    case magicPotion, magicPotionBonus
-
-//  func power() -> Int {
-//        switch self {
-//        case .magicPotion:
-//            return 8
-//        case .magicPotionBonus:
-//            return 21
-//
-//  }
-//}
-//
-//    func characterType() -> [CharacterType] {
-//        switch self {
-//        case .sword :
-//            return [.warrior]
-//        case .bonusSword:
-//            return [.warrior]
-//        case .ironGlove:
-//            return [.colossus]
-//        case .ironGloveBonus:
-//            return [.colossus]
-//        case .axe:
-//            return [.midget]
-//        case .axeBonus:
-//            return [.midget]
-//        case .magicPotion:
-//            return [.wizard]
-//        case .magicPotionBonus:
-//            return [.wizard]
-//
-//        }
-//    }
-//}
-//
