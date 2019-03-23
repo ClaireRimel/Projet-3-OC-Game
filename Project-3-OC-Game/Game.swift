@@ -27,10 +27,10 @@ class Game {
                This war game is simple, 2 teams with 3 characters per team
                You will have the choice between:
             
-               🤺 Warior, 100 life point, 10 inflicted by his Sword
-               🧙🏻‍♂️ Wizard, 80 life point, 8 points recoverded by his Magic Potion
-               🏋🏻‍♂️ Colossus, 150 life point, 6 inflicted by is Iron GLove
-               🧝🏻‍♂️ Midget, 50 life point, 30 inflicted by his Axe
+               🤺 Warior, 100 life point ❤️, 10 inflicted by his Sword ⚔️
+               🧙🏻‍♂️ Wizard, 80 life point ❤️, 8 points recoverded by his Magic Potion 🍵
+               🏋🏻‍♂️ Colossus, 150 life point ❤️, 6 inflicted by is Iron GLove 🥊
+               🧝🏻‍♂️ Midget, 50 life point ❤️, 30 inflicted by his Axe ⛏
             
                When your team is ready, let´s the game begin !!!
             
