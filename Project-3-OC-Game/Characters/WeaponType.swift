@@ -9,43 +9,42 @@
 import Foundation
 
 enum WeaponType {
-    case sword, magicPotion, ironGlove, axe, bomb, hammer, knif, dragger, firecraker, chain, elexirOfYouth, serum, apples, gun, spanner, bricks
+    case sword, knif, dragger, gun, magicPotion, apples, serum, elexirOfYouth, ironGlove, chain, bricks, bomb, axe, spanner, hammer, firecraker
     
     func weaponsName() -> String {
         switch self {
         case .sword:
             return "Sword"
-        case .magicPotion:
-            return "Magic Potion"
-        case .ironGlove:
-            return "Iron Glove"
-        case .axe:
-            return "Axe"
-        case .bomb:
-            return "Bomb"
-        case .hammer:
-            return "Hammer"
         case .knif:
             return "Knif"
         case .dragger:
             return "Dragger"
-        case .firecraker:
-            return "firecraker"
-        case .chain:
-            return "Chain"
-        case .elexirOfYouth:
-            return "Elexir Of Youth"
-        case .serum:
-            return "Serum"
-        case .apples:
-            return "Apples"
         case .gun:
             return "Gun"
-        case .spanner:
-            return "Spanner"
+        case .magicPotion:
+            return "Magic Potion"
+        case .apples:
+            return "Apples"
+        case .serum:
+            return "Serum"
+        case .elexirOfYouth:
+            return "Elexir Of Youth"
+        case .ironGlove:
+            return "Iron Glove"
+        case .chain:
+            return "Chain"
         case .bricks:
             return "Bricks"
-            
+        case .bomb:
+            return "Bomb"
+        case .axe:
+            return "Axe"
+        case .spanner:
+            return "Spanner"
+        case .hammer:
+            return "Hammer"
+        case .firecraker:
+            return "firecraker"
         }
     }
     
@@ -53,37 +52,36 @@ enum WeaponType {
         switch self {
         case .sword:
             return 10
+        case .knif:
+            return 15
+        case .dragger:
+            return 24
+        case .gun:
+            return 30
         case .magicPotion:
             return 8
-        case .ironGlove:
-            return 6
-        case .axe:
-            return 30
-        case .bomb:
-            return 58
-        case .hammer:
-            return 40
-        case .knif:
-            return 35
-        case .dragger:
-            return 50
-        case .firecraker:
-            return 48
-        case .chain:
-            return 45
-        case .elexirOfYouth:
-            return 30
-        case .serum:
-            return 20
         case .apples:
             return 15
-        case .gun:
-            return 26
-        case .spanner:
+        case .serum:
             return 20
+        case .elexirOfYouth:
+            return 25
+        case .ironGlove:
+            return 6
+        case .chain:
+            return 12
         case .bricks:
-            return 19
-            
+            return 18
+        case .bomb:
+            return 24
+        case .axe:
+            return 30
+        case .spanner:
+            return 37
+        case .hammer:
+            return 40
+        case .firecraker:
+            return 48
         }
     }
     
@@ -91,50 +89,49 @@ enum WeaponType {
         switch self {
         case .sword:
             return "⚔️"
-        case .magicPotion:
-            return "🍵"
-        case .ironGlove:
-            return "🥊"
-        case .axe:
-            return "⛏"
-        case .bomb:
-            return "💣"
-        case .hammer:
-            return "🔨"
         case .knif:
             return "🔪"
         case .dragger:
             return "🗡"
-        case .firecraker:
-            return "🧨"
-        case .chain:
-            return "⛓"
-        case .elexirOfYouth:
-            return "🧬"
-        case .serum:
-            return "🧪"
-        case .apples:
-            return "🍎🍏"
         case .gun:
             return "🔫"
-        case .spanner:
-            return "🔧"
+        case .magicPotion:
+            return "🍵"
+        case .apples:
+            return "🍎🍏"
+        case .serum:
+            return "🧪"
+        case .elexirOfYouth:
+            return "🧬"
+        case .ironGlove:
+            return "🥊"
+        case .chain:
+            return "⛓"
         case .bricks:
             return "🧱"
-            
+        case .bomb:
+            return "💣"
+        case .axe:
+            return "⛏"
+        case .spanner:
+            return "🔧"
+        case .hammer:
+            return "🔨"
+        case .firecraker:
+            return "🧨"
         }
     }
     
     static func getWeaponsFor(type: CharacterType) -> [WeaponType] {
         switch type {
         case .wizard:
-            return [.elexirOfYouth, .serum, .apples]
+            return [.apples, .serum, .elexirOfYouth, ]
         case .warrior:
             return [.knif, .dragger, .gun]
         case .colossus:
-            return [.bomb, .chain, .bricks]
+            return [.chain, .bricks, .bomb]
         case .midget:
-            return [.hammer, .firecraker, .spanner ]
+            return [.spanner, .hammer, .firecraker ]
         }
     }
 }
