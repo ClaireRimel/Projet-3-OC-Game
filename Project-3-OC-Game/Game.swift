@@ -43,9 +43,6 @@ class Game {
         self.createTeams()
     }
     
-    
-    // Utils :
-    
     //Function which verify of the name is avaible
     func isCharacterNameIsUnique(characterName: String) -> Bool {
         for team in teams {
@@ -64,7 +61,7 @@ class Game {
         return true
     }
     
-    // verify if the team name is unique, that return to a Bool
+    // Verify if the team name is unique, that return to a Bool
     func isTeamNameIsUnique(name: String) -> Bool {
         for team in teams {
             if name == team.name {
@@ -121,7 +118,7 @@ class Game {
             
         }
     }
-    
+
     func startBattle() {
         var isFirstTeamTurn = true
         var hasTeam1Lost = false
@@ -149,7 +146,7 @@ class Game {
          // !hasTeam1Lost change BUT NOT assign the value for the opposite boolean value
         } while !hasTeam1Lost && !hasTeam2Lost
         
-//      Print the winning team´s name
+        //Print the winning team´s name
         if hasTeam1Lost {
             battleFinished(reason: .team2Win)
         } else if hasTeam2Lost {
@@ -177,10 +174,8 @@ class Game {
         if characterSelected.charactertype == .wizard {
             print("\nSelect a character from your team to heal:")
             
-            // Should the wizard be able to heal himself ?
             let characterToHealSelected = selectCharacterFrom(team: team)
             characterSelected.action(target: characterToHealSelected)
-            // The characters can have more life points that they initialy have ?
             
             print("""
                 
@@ -206,7 +201,7 @@ class Game {
                 }
                
                 
-                //check if enemy.life <= 0 -> dead
+            //check if enemy.life <= 0 -> dead
             } else if enemySelected.life <= 0 {
                 print("""
                     

@@ -22,20 +22,20 @@ class Bonus {
             """)
         
     }
-    
+    // Definition of the appearence frequenty
     func magicBoxAppearence(character: Character) {
-        let value = Int.random(in: 0..<2)
+        let value = Int.random(in: 0..<4)
         if value == 0 {
             magicBox(character: character)
         }
     }
-    
+    // Defiontion of the behavior of the magic box
     func magicBox(character: Character){
         let weapons = WeaponType.getWeaponsFor(type: character.charactertype)
         let randomValue = Int.random(in: 0..<weapons.count)
         let newWeapon = weapons [randomValue]
-        
-        guard character.weaponType != newWeapon else {
+        // Verify that the weapon already atribuate to the character is diferent than the newWeapon, or we will recall the func magicBox until this condition is completed.
+            guard character.weaponType != newWeapon else {
             magicBox(character: character)
             return
         }
@@ -44,7 +44,7 @@ class Bonus {
             
             \(character.name), the \(character.charactertype) \(character.charactertype.getEmoji()), find a Magic Box 🎁!!!!
             
-            On this Magic Box🎁, there a e new weapon !!! Your character took it !!!
+            On this Magic Box 🎁, there a e new weapon !!! Your character took it !!!
             
             Before, he had \(character.weaponType) \(character.weaponType.emoji()) with a power of \(character.weaponType.power())
             """)

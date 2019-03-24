@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 enum WeaponType {
     case sword, knif, dragger, gun, magicPotion, apples, serum, elexirOfYouth, ironGlove, chain, bricks, bomb, axe, spanner, hammer, firecraker
     
