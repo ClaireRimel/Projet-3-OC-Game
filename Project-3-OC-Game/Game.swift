@@ -59,7 +59,7 @@ class Game {
     }
     
     // Verify if the team name is unique, that return to a Bool
-    func isTeamNameIsUnique(name: String) -> Bool {
+   private func isTeamNameIsUnique(name: String) -> Bool {
         for team in teams {
             if name == team.name {
                 print("""
@@ -73,7 +73,7 @@ class Game {
         return true
     }
     
-    func addNameToYourTeam() -> String {
+   private func addNameToYourTeam() -> String {
         var name: String?
         
         repeat {
@@ -91,7 +91,7 @@ class Game {
     }
     
     //Create 2 teams in an array
-    func createTeams() {
+   private func createTeams() {
         
         for i in 1...2 {
             
@@ -155,7 +155,7 @@ class Game {
 
     
     // Print the character team to be selected
-    func battleTurn(team: Team, enemyTeam: Team) {
+    private func battleTurn(team: Team, enemyTeam: Team) {
         //MENU selection of character
         print("""
             

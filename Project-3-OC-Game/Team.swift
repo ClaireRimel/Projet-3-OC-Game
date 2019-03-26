@@ -73,7 +73,7 @@ class Team {
 
 
     // function which verify if the name the player give a name.
-    func addNameToYourCharacter() -> String {
+    private func addNameToYourCharacter() -> String {
         var characterName: String?
         
         repeat {
@@ -90,7 +90,7 @@ class Team {
         return characterName!
     }
     
-    func displayCurrentStatus() {
+   private func displayCurrentStatus() {
         print("""
             Team \(name) you team is composed of :"
             """)
@@ -100,7 +100,7 @@ class Team {
         }
     }
     // verify if all characters are dead
-    func hasLost() -> Bool {        
+    func hasLost() -> Bool {
         // .filter extract juste the element that is required in the condition, is this case : life
         return characters.filter({ $0.life > 0 }).count == 0
         

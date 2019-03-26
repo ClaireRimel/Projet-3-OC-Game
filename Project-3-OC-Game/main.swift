@@ -12,7 +12,6 @@ let game = Game()
 //game.start()
 //game.startBattle()
 
-
 //Test data
 let teamA = Team(name: "Marvel", game: game)
 let character1 = Character(name: "Thor", charactertype: .warrior)
