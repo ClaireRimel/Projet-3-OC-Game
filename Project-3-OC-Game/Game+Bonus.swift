@@ -1,5 +1,5 @@
 //
-//  Bonus.swift
+//  Game+Bonus.swift
 //  Project-3-OC-Game
 //
 //  Created by Claire Sivadier on 20/03/2019.
@@ -7,8 +7,8 @@
 //
 
 import Foundation
-// TODO: Extention
-class Bonus {
+
+extension Game {
     // ingrement the the victim life point to 0, and remove half of the life point from all characters of the opposite team
     func selfDestructionBonus(victim: Character, attackerTeam: Team) {
         victim.life = 0
@@ -29,7 +29,7 @@ class Bonus {
             magicBox(character: character)
         }
     }
-    // Defiontion of the behavior of the magic box
+    // Definition of the behavior of the magic box
     func magicBox(character: Character){
         let weapons = WeaponType.getWeaponsFor(type: character.charactertype)
         let randomValue = Int.random(in: 0..<weapons.count)

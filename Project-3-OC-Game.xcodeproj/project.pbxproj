@@ -12,7 +12,7 @@
 		FA9532C922109726003D4166 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9532C822109726003D4166 /* main.swift */; };
 		FA9532D6221099D7003D4166 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9532D5221099D7003D4166 /* Team.swift */; };
 		FA9532DA22109A0A003D4166 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9532D922109A0A003D4166 /* Character.swift */; };
-		FAEAC3052242DDC600D95848 /* Bonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEAC3042242DDC600D95848 /* Bonus.swift */; };
+		FAEAC3052242DDC600D95848 /* Game+Bonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEAC3042242DDC600D95848 /* Game+Bonus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,7 +34,7 @@
 		FA9532C822109726003D4166 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		FA9532D5221099D7003D4166 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		FA9532D922109A0A003D4166 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
-		FAEAC3042242DDC600D95848 /* Bonus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bonus.swift; sourceTree = "<group>"; };
+		FAEAC3042242DDC600D95848 /* Game+Bonus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Game+Bonus.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +70,7 @@
 				FA9532C822109726003D4166 /* main.swift */,
 				FA9532D5221099D7003D4166 /* Team.swift */,
 				FA57387F2210B3E5009405EC /* Game.swift */,
-				FAEAC3042242DDC600D95848 /* Bonus.swift */,
+				FAEAC3042242DDC600D95848 /* Game+Bonus.swift */,
 				FAF337B9221C06F100C20F7B /* Characters */,
 			);
 			path = "Project-3-OC-Game";
@@ -117,6 +117,7 @@
 				TargetAttributes = {
 					FA9532C422109726003D4166 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -126,6 +127,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = FA9532BC22109725003D4166;
 			productRefGroup = FA9532C622109726003D4166 /* Products */;
@@ -147,7 +149,7 @@
 				FA9532C922109726003D4166 /* main.swift in Sources */,
 				FA6C90E52219DF4E00B4C334 /* WeaponType.swift in Sources */,
 				FA9532DA22109A0A003D4166 /* Character.swift in Sources */,
-				FAEAC3052242DDC600D95848 /* Bonus.swift in Sources */,
+				FAEAC3052242DDC600D95848 /* Game+Bonus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,7 +277,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BDMB887655;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -285,7 +287,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BDMB887655;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

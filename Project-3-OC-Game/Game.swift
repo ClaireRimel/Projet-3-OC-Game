@@ -16,9 +16,6 @@ class Game {
     //Create array of Team
     var teams: [Team] = []
     
-    //Create Object with ()
-    let bonus = Bonus()
-    
     func start() {
         print("""
 
@@ -168,7 +165,7 @@ class Game {
             """)
         let characterSelected = selectCharacterFrom(team: team)
        
-        bonus.magicBoxAppearence(character: characterSelected)
+        magicBoxAppearence(character: characterSelected)
         
         // print the character that could be cured
         if characterSelected.charactertype == .wizard {
@@ -196,8 +193,7 @@ class Game {
                     """)
                 // use to verify if enemySelected.life <= 4 using the selfDestructionBonus()
                 if enemySelected.life <= 4 {
-                    bonus.selfDestructionBonus(victim: enemySelected, attackerTeam: team)
-                    
+                    selfDestructionBonus(victim: enemySelected, attackerTeam: team)
                 }
                
                 
