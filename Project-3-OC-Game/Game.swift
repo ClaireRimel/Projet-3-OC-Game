@@ -12,6 +12,13 @@ enum EndReason {
     case team1Win, team2Win, draw
 }
 
+protocol GameInterface {
+    
+    func start()
+    
+    func startBattle()
+}
+
 class Game {
     //Create array of Team
     var teams: [Team] = []
@@ -228,6 +235,30 @@ class Game {
 
 extension Game {
     
+    //Function which verify of the name is avaible
+    func isCharacterNameIsUnique(characterName: String) -> Bool {
+        for team in teams {
+            // nested loop
+            for character in team.characters {
+                if characterName == character.name{
+                    print("""
+
+                        ⚠️ This character name is not avaible
+                        
+                        """)
+                    return false
+                }
+            }
+        }
+        return true
+    }
+}
+
+
+//MARK:- GameInterface
+
+extension Game: GameInterface {
+    
     func start() {
         print("""
 
@@ -288,26 +319,4 @@ extension Game {
         
         print("\nTurns played: \(turns)")
     }
-    
-    //Function which verify of the name is avaible
-    func isCharacterNameIsUnique(characterName: String) -> Bool {
-        for team in teams {
-            // nested loop
-            for character in team.characters {
-                if characterName == character.name{
-                    print("""
-
-                        ⚠️ This character name is not avaible
-                        
-                        """)
-                    return false
-                }
-            }
-        }
-        return true
-    }
-    
-   
-  
 }
-

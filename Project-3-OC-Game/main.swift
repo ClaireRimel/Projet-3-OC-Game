@@ -8,7 +8,7 @@
 
 import Foundation
 
-let game = Game()
+let game: GameInterface = Game()
 game.start()
 game.startBattle()
 
