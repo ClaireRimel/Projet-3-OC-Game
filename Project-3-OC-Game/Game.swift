@@ -1,5 +1,5 @@
 //
-//  Fight.swift
+//  Game.swift
 //  Project-3-OC-Game
 //
 //  Created by Claire Sivadier on 10/02/2019.
@@ -16,82 +16,8 @@ class Game {
     //Create array of Team
     var teams: [Team] = []
     
-    func start() {
-        print("""
-
-                            Welcome to Battle Game OC
-            
-               This war game is simple, 2 teams with 3 characters per team
-               You will have the choice between:
-            
-               🤺 Warior, 100 life point ❤️, 10 inflicted by his Sword ⚔️
-               🧙🏻‍♂️ Wizard, 80 life point ❤️, 8 points recoverded by his Magic Potion 🍵
-               🏋🏻‍♂️ Colossus, 150 life point ❤️, 6 inflicted by is Iron GLove 🥊
-               🧝🏻‍♂️ Midget, 50 life point ❤️, 30 inflicted by his Axe ⛏
-            
-               When your team is ready, let´s the game begin !!!
-            
-            
-               OH, I forgot to tell you something... nothing is played in advance...
-            
-                                  ...Be aware...
-            """)
-        
-        self.createTeams()
-    }
-    
-    //Function which verify of the name is avaible
-    func isCharacterNameIsUnique(characterName: String) -> Bool {
-        for team in teams {
-            // nested loop
-            for character in team.characters {
-                if characterName == character.name{
-                    print("""
-
-                        ⚠️ This character name is not avaible
-                        
-                        """)
-                    return false
-                }
-            }
-        }
-        return true
-    }
-    
-    // Verify if the team name is unique, that return to a Bool
-   private func isTeamNameIsUnique(name: String) -> Bool {
-        for team in teams {
-            if name == team.name {
-                print("""
-
-                    ⚠️ This team name is not avaible
-
-                    """)
-                return false
-            }
-        }
-        return true
-    }
-    
-   private func addNameToYourTeam() -> String {
-        var name: String?
-        
-        repeat {
-            
-            name = readLine()
-            // add optinal binding, to extract the value form an optional if it exist
-            if let value = name, value.count > 0 {
-                name = value
-                
-            }
-            
-        } while (name == nil || name?.count == 0)
-        
-        return name!
-    }
-    
     //Create 2 teams in an array
-   private func createTeams() {
+    private func createTeams() {
         
         for i in 1...2 {
             
@@ -115,44 +41,38 @@ class Game {
             
         }
     }
-
-    func startBattle() {
-        var isFirstTeamTurn = true
-        var hasTeam1Lost = false
-        var hasTeam2Lost = false
-        var turns = 0
-
+    
+   private func addNameToYourTeam() -> String {
+        var name: String?
+        
         repeat {
-            // verify which types of characters alive are still playing
-            guard !onlyWizardsInGame() else {
-                battleFinished(reason: .draw)
-                return
+            
+            name = readLine()
+            // add optinal binding, to extract the value form an optional if it exist
+            if let value = name, value.count > 0 {
+                name = value
+                
             }
             
-            if isFirstTeamTurn {
-                battleTurn(team: teams[0], enemyTeam: teams[1])
-                hasTeam2Lost = teams[1].hasLost()
-                
-            } else {
-                battleTurn(team: teams[1], enemyTeam: teams[0])
-                hasTeam1Lost = teams[0].hasLost()
-            }
-            // .toggle, change and assign the value for the opposite boolean value
-            isFirstTeamTurn.toggle()
-            turns += 1
-         // !hasTeam1Lost change BUT NOT assign the value for the opposite boolean value
-        } while !hasTeam1Lost && !hasTeam2Lost
+        } while (name == nil || name?.count == 0)
         
-        //Print the winning team´s name
-        if hasTeam1Lost {
-            battleFinished(reason: .team2Win)
-        } else if hasTeam2Lost {
-            battleFinished(reason: .team1Win)
-        }
-        
-        print("\nTurns played: \(turns)")
+        return name!
     }
+    
+    // Verify if the team name is unique, that return to a Bool
+    private func isTeamNameIsUnique(name: String) -> Bool {
+        for team in teams {
+            if name == team.name {
+                print("""
 
+                    ⚠️ This team name is not avaible
+
+                    """)
+                return false
+            }
+        }
+        return true
+    }
     
     // Print the character team to be selected
     private func battleTurn(team: Team, enemyTeam: Team) {
@@ -209,22 +129,9 @@ class Game {
         }
     }
     
-    // Ingrement the way to finish the party
-    func battleFinished(reason: EndReason) {
-        switch reason {
-        case .team1Win:
-            print("\nCongratulation \(teams[0].name), you win! 🏆")
-        case .team2Win:
-            print("\nCongratulation \(teams[1].name), you win! 🏆")
-        case .draw:
-            print("\n🧙🏻‍♂️🧙🏻‍♂️🧙🏻‍♂️Sorry this party is over, because there are only wizards in game🧙🏻‍♂️🧙🏻‍♂️🧙🏻‍♂️")
-
-        }
-    }
-    
    
     //validate that the character selected is alive, if not we'll display an error message and the user we'll have to repeat the selection
-    func selectCharacterFrom(team: Team) -> Character {
+   private func selectCharacterFrom(team: Team) -> Character {
         var characterSelected: Character?
         
         // Used to print the selection of characters
@@ -262,7 +169,7 @@ class Game {
     }
     
     // Verify if the character selected is dead
-    func isCharacterDead(_ character: Character) -> Bool {
+   private func isCharacterDead(_ character: Character) -> Bool {
         if character.life <= 0 {
             print("""
 
@@ -275,7 +182,7 @@ class Game {
     }
     
     // use the verify if the number could be convertible to an Int
-    func numericValue(input: String?) -> Int? {
+   private func numericValue(input: String?) -> Int? {
         if let inputNonOptional = input,
             inputNonOptional.count > 0,
             let inputNumber = Int(inputNonOptional) {
@@ -284,8 +191,22 @@ class Game {
         return nil
     }
     
+    // Ingrement the way to finish the party
+    private func battleFinished(reason: EndReason) {
+        switch reason {
+        case .team1Win:
+            print("\nCongratulation \(teams[0].name), you win! 🏆")
+        case .team2Win:
+            print("\nCongratulation \(teams[1].name), you win! 🏆")
+        case .draw:
+            print("\n🧙🏻‍♂️🧙🏻‍♂️🧙🏻‍♂️Sorry this party is over, because there are only wizards in game🧙🏻‍♂️🧙🏻‍♂️🧙🏻‍♂️")
+            
+        }
+    }
+    
+    
     //Verify if all characters playing are wizard
-    func onlyWizardsInGame() -> Bool {
+   private func onlyWizardsInGame() -> Bool {
         var wizardsCount = 0
         
         for team in teams {
@@ -305,5 +226,88 @@ class Game {
     }
 }
 
+extension Game {
+    
+    func start() {
+        print("""
 
+                            Welcome to Battle Game OC
+            
+               This war game is simple, 2 teams with 3 characters per team
+               You will have the choice between:
+            
+               🤺 Warior, 100 life point ❤️, 10 inflicted by his Sword ⚔️
+               🧙🏻‍♂️ Wizard, 80 life point ❤️, 8 points recoverded by his Magic Potion 🍵
+               🏋🏻‍♂️ Colossus, 150 life point ❤️, 6 inflicted by is Iron GLove 🥊
+               🧝🏻‍♂️ Midget, 50 life point ❤️, 30 inflicted by his Axe ⛏
+            
+               When your team is ready, let´s the game begin !!!
+            
+            
+               OH, I forgot to tell you something... nothing is played in advance...
+            
+                                  ...Be aware...
+            """)
+        
+        self.createTeams()
+    }
+    
+    func startBattle() {
+        var isFirstTeamTurn = true
+        var hasTeam1Lost = false
+        var hasTeam2Lost = false
+        var turns = 0
+        
+        repeat {
+            // verify which types of characters alive are still playing
+            guard !onlyWizardsInGame() else {
+                battleFinished(reason: .draw)
+                return
+            }
+            
+            if isFirstTeamTurn {
+                battleTurn(team: teams[0], enemyTeam: teams[1])
+                hasTeam2Lost = teams[1].hasLost()
+                
+            } else {
+                battleTurn(team: teams[1], enemyTeam: teams[0])
+                hasTeam1Lost = teams[0].hasLost()
+            }
+            // .toggle, change and assign the value for the opposite boolean value
+            isFirstTeamTurn.toggle()
+            turns += 1
+            // !hasTeam1Lost change BUT NOT assign the value for the opposite boolean value
+        } while !hasTeam1Lost && !hasTeam2Lost
+        
+        //Print the winning team´s name
+        if hasTeam1Lost {
+            battleFinished(reason: .team2Win)
+        } else if hasTeam2Lost {
+            battleFinished(reason: .team1Win)
+        }
+        
+        print("\nTurns played: \(turns)")
+    }
+    
+    //Function which verify of the name is avaible
+    func isCharacterNameIsUnique(characterName: String) -> Bool {
+        for team in teams {
+            // nested loop
+            for character in team.characters {
+                if characterName == character.name{
+                    print("""
+
+                        ⚠️ This character name is not avaible
+                        
+                        """)
+                    return false
+                }
+            }
+        }
+        return true
+    }
+    
+   
+  
+}
 
