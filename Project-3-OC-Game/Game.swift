@@ -219,7 +219,9 @@ class Game {
         for team in teams {
             for character in team.characters {
                 if character.charactertype == .wizard {
+                    if  character.life > 0 {
                     wizardsCount += 1
+                    }
                 }
             }
         }

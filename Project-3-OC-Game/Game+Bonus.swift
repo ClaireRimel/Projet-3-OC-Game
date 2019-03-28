@@ -20,7 +20,6 @@ extension Game {
             ❗️❗️❗️Due to his low level of life points, \(victim.name) the \(victim.charactertype) \(victim.charactertype.getEmoji()) choose by himself, to use self Destuct, by this action, he fainted 💀 but he also inflict a loose of half to the life points of all the characters in the Team \(attackerTeam.name)❗️❗️❗️
             
             """)
-        
     }
     // Definition of the appearence frequenty
     func magicBoxAppearence(character: Character) {

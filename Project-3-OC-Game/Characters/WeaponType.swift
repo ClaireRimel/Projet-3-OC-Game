@@ -11,7 +11,8 @@ import Foundation
 
 enum WeaponType {
     case sword, knif, dragger, gun, magicPotion, apples, serum, elexirOfYouth, ironGlove, chain, bricks, bomb, axe, spanner, hammer, firecraker
-    
+
+    //Raw value, affecte *DICTIONNAIRE/Tableau ,dans chaque case affecter 3 fonctions, associted value,  function fonction similaire
     func weaponsName() -> String {
         switch self {
         case .sword:
