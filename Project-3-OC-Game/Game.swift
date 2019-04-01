@@ -47,6 +47,8 @@ class Game {
             team.addTeamMembers()
             
         }
+        teams[0].displayCurrentStatus()
+        teams[1].displayCurrentStatus()        
     }
     
    private func addNameToYourTeam() -> String {

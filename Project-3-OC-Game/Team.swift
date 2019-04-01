@@ -90,13 +90,17 @@ class Team {
         return characterName!
     }
     
-   private func displayCurrentStatus() {
+    func displayCurrentStatus() {
         print("""
+            
             Team \(name) you team is composed of :"
+            
             """)
         
         for character in characters {
-            print("  - \(character.name) the \(character.charactertype), he have \(character.life) life points, he is armed with \(character.weaponType) which have a power of \(character.weaponType.power()) ")
+            print("""
+                  \(character.name): \(character.charactertype.getEmoji()) | ❤️ :\(character.life) | \(character.weaponType.emoji()): \(character.weaponType.power())
+                """)
         }
     }
     // verify if all characters are dead
