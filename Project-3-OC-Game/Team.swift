@@ -10,11 +10,8 @@ import Foundation
 
 
 class Team {
-    // Remind add rule, 3 characters max
     var characters: [Character] = []
-    
     let game: Game
-    
     let name: String
     
     init(name: String, game: Game) {
@@ -89,7 +86,7 @@ class Team {
         
         return characterName!
     }
-    
+    // Used before the second step, to inform how are constitued the teams
     func displayCurrentStatus() {
         print("""
             

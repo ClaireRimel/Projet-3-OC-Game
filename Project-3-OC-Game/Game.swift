@@ -48,9 +48,10 @@ class Game {
             
         }
         teams[0].displayCurrentStatus()
-        teams[1].displayCurrentStatus()        
+        teams[1].displayCurrentStatus()
     }
     
+    // Use to add a name to the team, and verify if the name doesn't existe
    private func addNameToYourTeam() -> String {
         var name: String?
         

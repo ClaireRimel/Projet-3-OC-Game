@@ -12,7 +12,7 @@ import Foundation
 enum WeaponType {
     case sword, knif, dragger, gun, magicPotion, apples, serum, elexirOfYouth, ironGlove, chain, bricks, bomb, axe, spanner, hammer, firecraker
 
-    //Raw value, affecte *DICTIONNAIRE/Tableau ,dans chaque case affecter 3 fonctions, associted value,  function fonction similaire
+    //Give a string for the name of the weaponsName
     func weaponsName() -> String {
         switch self {
         case .sword:
@@ -50,6 +50,7 @@ enum WeaponType {
         }
     }
     
+    // Used to atribute a power to each weapon
     func power() -> Int {
         switch self {
         case .sword:
@@ -87,6 +88,7 @@ enum WeaponType {
         }
     }
     
+    // Used to atribute an emoji to each weapon
     func emoji() -> String {
         switch self {
         case .sword:
@@ -124,6 +126,7 @@ enum WeaponType {
         }
     }
     
+    // Controle which weapon can be given to which CharacterType
     static func getWeaponsFor(type: CharacterType) -> [WeaponType] {
         switch type {
         case .wizard:

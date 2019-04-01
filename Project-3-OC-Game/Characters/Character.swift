@@ -12,6 +12,7 @@ import Foundation
 enum CharacterType: Int {
     case warrior = 1, wizard, colossus, midget
     
+    // Use to atribute an emoji to the character type
     func getEmoji() -> String {
         switch self {
         case .warrior:
@@ -24,37 +25,21 @@ enum CharacterType: Int {
             return "🧝🏻‍♂️"
         }
     }
-    
-//    func getWeaponEmoji() -> String {
-//        switch self {
-//        case .warrior:
-//            return "⚔️"
-//        case .wizard:
-//            return "🍵"
-//        case .colossus:
-//            return "🥊"
-//        case .midget:
-//            return "⛏"
-//        }
-//    }
-
 }
 
 
 class Character {
     
     let name: String
-    
     let charactertype: CharacterType
-    
     var weaponType: WeaponType
-    
     var life: Int
     
     init(name: String, charactertype: CharacterType){
         self.name = name
         self.charactertype = charactertype
         
+        //Give to the character type a weaponType and set the life points
         switch self.charactertype {
         case .warrior:
             self.weaponType = .sword
@@ -73,7 +58,8 @@ class Character {
             self.life = 50
         }
     }
-    // Tempoary place, this implement the action of the characters
+    
+    // This implement the action of the characters
     func action(target: Character) {
         if charactertype == .wizard {
             target.life += weaponType.power()
@@ -81,12 +67,6 @@ class Character {
             target.life -= weaponType.power()
         }
     }
-
-    func selfDestruct(target: Character) {
-            target.life /= 2
-        
-    }
-
 }
 
 
