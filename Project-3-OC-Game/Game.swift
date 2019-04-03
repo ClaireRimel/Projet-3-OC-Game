@@ -146,7 +146,7 @@ class Game {
         
         // Used to print the selection of characters
         repeat {
-            //print characters list
+            //print .toggle list
             for i in 0..<team.characters.count {
                 let character = team.characters[i]
                 

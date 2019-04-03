@@ -90,7 +90,7 @@ class Team {
     func displayCurrentStatus() {
         print("""
             
-            Team \(name) you team is composed of :"
+            Team \(name) you team is composed of :
             
             """)
         
